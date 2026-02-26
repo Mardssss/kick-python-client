@@ -1,0 +1,7 @@
+# requirements.txt
+
+# Core dependencies
+requests>=2.28.0
+flask>=2.2.0           # used for local OAuth callback server
+
+python-dotenv>=1.0.0   # loading .env files

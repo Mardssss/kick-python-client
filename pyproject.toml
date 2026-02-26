@@ -1,0 +1,47 @@
+# pyproject.toml
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "kick-api-client"
+version = "1.0.0"
+description = "Simple Python client for Kick.com public API (OAuth2 + user tokens)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+  {name = "mardssss"}
+]
+keywords = ["kick", "kick.com", "streaming", "api", "oauth"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "requests >= 2.28.0",
+    "flask >= 2.2.0",           # for local oauth callback
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff",
+    "pytest",
+    "pre-commit",
+    "python-dotenv",
+]
+
+[project.urls]
+Homepage = "https://github.com/mardssss/kick-api-client"
+Repository = "https://github.com/mardssss/kick-api-client"
+Issues = "https://github.com/mardssss/kick-api-client/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/kick"]

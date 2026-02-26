@@ -1,0 +1,12 @@
+# .gitignore
+
+# Secrets & tokens ── never commit these!
+.env
+*.env
+kick_tokens.json
+*.tokens.json
+*.token
+
+
+
+
