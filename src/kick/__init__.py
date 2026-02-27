@@ -9,7 +9,7 @@ from .exceptions import (
     KickTokenExpiredError,
 )
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 __author__ = "Mardssss"
 __license__ = "MIT"          
 
