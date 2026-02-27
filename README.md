@@ -16,6 +16,8 @@ A simple, reusable Python client for Kick.com's public API using OAuth2 + PKCE.
 - Full OAuth2 Authorization Code flow with PKCE
 - Automatic token refresh
 - Persistent token storage (`kick_tokens.json` by default)
+- Modular structure (auth, user, channel, chat, exceptions)
+- Custom exceptions for better error handling
 - Clean class-based API: `KickClient`
 - Minimal dependencies (`requests`, `flask`)
 
@@ -50,7 +52,14 @@ Just copy the `kick/` folder into your project:
 your-project/
 ├── kick/
 │   ├── __init__.py
-│   └── client.py
+│   ├── auth.py
+│   ├── channel.py
+│   ├── chat.py
+│   ├── client.py
+│   ├── exceptions.py
+│   └── user.py
+├── .env
+└── bot.py
 ```
 
 Then import like this:
@@ -122,6 +131,21 @@ client.update_channel(
     custom_tags="python,bot,development"
 )
 print("Stream settings updated!")
+```
+
+## Error Handling
+The library raises custom exceptions for common errors:
+
+```python
+from kick import KickAPIError, KickAuthenticationError
+
+try:
+    channel = client.get_channel()
+except KickAuthenticationError as e:
+    print(f"Auth problem: {e}")
+except KickAPIError as e:
+    print(f"API error: {e.status_code} {e.message}")
+Development / Contributing
 ```
 
 ## Development / Contributing
