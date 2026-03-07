@@ -5,8 +5,9 @@ from typing import Any, Dict, List, Optional
 from .auth import AuthManager
 from .channel import ChannelOperations
 from .user import UserOperations
+from .chat import ChatOperations
 
-class KickClient(AuthManager, UserOperations, ChannelOperations):
+class KickClient(AuthManager, UserOperations, ChannelOperations, ChatOperations):
     """
     Main entry point to the Kick.com API client.
     """
